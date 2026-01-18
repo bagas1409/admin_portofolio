@@ -11,7 +11,7 @@ import Modal from '@/components/ui/modal';
 interface Project {
     _id: string;
     title: string;
-    type: 'MOBILE' | 'WEB';
+    type: 'mobile' | 'web';
     images: string[];
     description: string;
 }
