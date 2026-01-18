@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from "next/image";
 import { motion } from 'framer-motion';
 import { Plus, Edit, Trash2, Loader2 } from 'lucide-react';
 import api from '@/lib/axios';
@@ -105,7 +106,13 @@ export default function ProjectsPage() {
                         >
                             <div className="aspect-video relative overflow-hidden bg-gray-100">
                                 {project.images && project.images.length > 0 ? (
-                                    <img src={project.images[0]} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                    <Image
+                                        src={project.images[0]}
+                                        alt={project.title}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    />
                                 ) : (
                                     <div className="w-full h-full flex items-center justify-center text-gray-400">No Image</div>
                                 )}

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import Image from "next/image";
 import { motion } from 'framer-motion';
 import { Upload, X, Loader2 } from 'lucide-react';
 import api from '@/lib/axios';
@@ -87,7 +88,7 @@ export default function ImageUpload({ value, onChange, disabled }: ImageUploadPr
                     animate={{ opacity: 1, scale: 1 }}
                     className="relative aspect-video w-full max-w-md rounded-xl overflow-hidden border border-gray-200 bg-gray-100"
                 >
-                    <img src={value} alt="Upload" className="object-cover w-full h-full" />
+                    <Image src={value} alt="Upload" fill className="object-cover" sizes="(max-width: 768px) 100vw, 500px" />
                     <button
                         onClick={handleRemove}
                         type="button"
